@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Admin from "../components/Admin";
 import NewTuany from "../components/NewTuany";
-import DevelopTurany from "../components/DevelopTurany";
+import DevelopTurany from "../components/DevelopTuany";
 import ExcellentTuany from "../components/ExcellentTuany";
 import Me from "../components/Me";
 

@@ -226,7 +226,7 @@
 <script>
   import axios from 'axios'
   export default {
-    name: "NewTuany",
+    name: "DevelopTuany",
     mounted (){ // 绑定监听事件
 
     },
