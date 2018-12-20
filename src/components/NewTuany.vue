@@ -133,18 +133,6 @@
 
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon icon-form-name"></i></div>
-              <div class="item-inner">
-                <div class="item-title label">政治面貌</div>
-                <div class="item-input">
-                  <input type="text" v-model="leagueEntity.politicalStatus" placeholder="请输入政治面貌">
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <div class="item-content">
               <div class="item-media"><i class="icon icon-form-gender"></i></div>
               <div class="item-inner">
                 <div class="item-title label">政治面貌</div>
@@ -263,7 +251,8 @@
       </div>
       <div class="content-block">
         <div class="row">
-          <div class="col-50"><a href="#"  @click="getLeagueByStudentId()" class="button button-big button-fill button-danger">取消</a></div>
+          <div class="col-50"><a href="#"  @click="cancel_edit()" class="button button-big button-fill button-danger">重置</a></div>
+          <!--<div class="col-50"><a href="#"  @click="getLeagueByStudentId()" class="button button-big button-fill button-danger">模拟</a></div>-->
           <div class="col-50"><a href="#" @click="addNewTuany()" class="button button-big button-fill button-success">提交</a></div>
         </div>
       </div>
@@ -309,21 +298,30 @@
       }
     },
     methods: {
+      cancel_edit() {
+        this.leagueEntity = {}
+      },
       addNewTuany() {
         axios({
           method: 'post',
           url: '/league/addnewleague',
           data: this.leagueEntity
         }).then(resp => {
-          var data = resp.data
-            $.toast(data.msg);
+          var data = resp.data;
+          $.toast(data.msg);
         })
       },
       getLeagueByStudentId() {
         axios.get('/league/selectleaguebyid?sid=1606915055')
           .then(resp => {
-            console.log(resp.data.data)
-            this.leagueEntity = resp.data.data;
+            var data = resp.data;
+            console.log(data)
+            var success = data.success;
+            $.toast(data.msg);
+            if (success){
+              this.leagueEntity = data.data;
+            }
+
           })
       },
       city_picker: function (event) {

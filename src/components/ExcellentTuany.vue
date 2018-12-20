@@ -240,7 +240,7 @@
       </div>
       <div class="content-block">
         <div class="row">
-          <div class="col-50"><a href="#"  @click="canceledit()" class="button button-big button-fill button-danger">取消</a></div>
+          <div class="col-50"><a href="#"  @click="cancel_edit()" class="button button-big button-fill button-danger">重置</a></div>
           <div class="col-50"><a href="#" @click="addNewTuany()" class="button button-big button-fill button-success">提交</a></div>
         </div>
       </div>
@@ -254,7 +254,7 @@
   export default {
     name: "ExcellentTuany",
     mounted (){ // 绑定监听事件
-      this.getexcellentByStudentId()
+      // this.getexcellentByStudentId()
     },
     data() {
       return {
@@ -288,7 +288,7 @@
       }
     },
     methods: {
-      canceledit() {
+      cancel_edit() {
         this.excellentEntity = {};
       },
       addNewTuany() {

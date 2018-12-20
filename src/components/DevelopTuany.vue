@@ -214,7 +214,7 @@
       </div>
       <div class="content-block">
         <div class="row">
-          <div class="col-50"><a href="#"  @click="getdevelopByStudentId()" class="button button-big button-fill button-danger">取消</a></div>
+          <div class="col-50"><a href="#"  @click="cancel_edit()" class="button button-big button-fill button-danger">重置</a></div>
           <div class="col-50"><a href="#" @click="addNewTuany()" class="button button-big button-fill button-success">提交</a></div>
         </div>
       </div>
@@ -260,6 +260,9 @@
       }
     },
     methods: {
+      cancel_edit() {
+        this.developEntity = {}
+      },
       addNewTuany() {
         axios({
           method: 'post',

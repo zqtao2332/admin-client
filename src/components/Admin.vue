@@ -6,7 +6,16 @@
 
 <script>
   export default {
-    name: "Admin"
+    name: "Admin",
+    mounted() {
+
+    },
+    methods: {
+      init() {
+        var _this = this;
+
+      }
+    }
   }
 </script>
 
